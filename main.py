@@ -8,7 +8,7 @@
 questions = {
 "What country has the highest life expectancy?":"B",
 "Where would you be if you were standing on the Spanish Steps?":"A",
-"Which language has the more native speakers: English or Spanish?":"D",
+"Which language has the more native speakers: English, Portuguese, Spanish or Mandarin?":"D",
 "What is the most common surname in the United States?":"D",
 "What disease commonly spread on pirate ships?":"B",
 "Who was the Ancient Greek God of the Sun? ":"C",
@@ -32,25 +32,34 @@ answers = [
 ] #TODO: move to a file
 
 score = 0
-question = 0
 
 def restart_game():
     score = 0
     question = 0
 
-def get_question():
-    pass
+    for i in questions.keys():
+        answer=None
+
+        print("\n------------------------")
+        print(i+"\n")
+        print(*answers[question],sep="\n") # * is called kwargs
+
+        check_answer(answer:=input("what is your answer? ").upper(),question)
+        question += 1
+        
+def check_answer(answer,question):
+    print("checking answer "+answer)
 
 def show_score(score):
     pass
 
 def main():
     print("in this game you'll be shown {} question and 4 possiable answers A-D for each wuestion.".format(len(questions)))
-    print("choose A/B/C/D to go to the next question.")
+    print("choose A/B/C/D to go to the next question.\n")
     
     restart_game()
     show_score(score)
-    while restart := input("want try again? write any charecter for to try again, or write no to stop: ") != "no":
+    while restart := input("\nwant try again? write any charecter for to try again, or write no to stop: ") != "no":
         restart_game()
         show_score(score)
 
