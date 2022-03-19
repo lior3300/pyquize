@@ -38,11 +38,21 @@ def restart_game():
     score = 0
     question = 0
 
-def show_score():
+def get_question():
+    pass
+
+def show_score(score):
     pass
 
 def main():
-    pass
+    print("in this game you'll be shown {} question and 4 possiable answers A-D for each wuestion.".format(len(questions)))
+    print("choose A/B/C/D to go to the next question.")
+    
+    restart_game()
+    show_score(score)
+    while restart := input("want try again? write any charecter for to try again, or write no to stop: ") != "no":
+        restart_game()
+        show_score(score)
 
 
 main()
