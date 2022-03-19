@@ -31,24 +31,29 @@ answers = [
 ("A)Taylor Swift","B)The Weeknd","C)Drake","D)Beyonce")
 ] #TODO: move to a file
 
-score = 0
-
 def restart_game():
     score = 0
-    question = 0
+    questionNum = 0
 
     for i in questions.keys():
         answer=None
 
         print("\n------------------------")
         print(i+"\n")
-        print(*answers[question],sep="\n") # * is called kwargs
+        print(*answers[questionNum],sep="\n") # * is called kwargs
 
-        check_answer(answer:=input("what is your answer? ").upper(),question)
-        question += 1
+        score += check_answer(answer:=input("what is your answer? ").upper(),i) # := is called walrus (working on python 3.8+)
+        questionNum += 1
+    
+    show_score(score)
         
 def check_answer(answer,question):
-    print("checking answer "+answer)
+    if questions.get(question) == answer:
+        print("\nCorrect!")
+        return 1
+    else:
+        print("\nwrong!")
+        return 0
 
 def show_score(score):
     pass
@@ -58,10 +63,8 @@ def main():
     print("choose A/B/C/D to go to the next question.\n")
     
     restart_game()
-    show_score(score)
     while restart := input("\nwant try again? write any charecter for to try again, or write no to stop: ") != "no":
         restart_game()
-        show_score(score)
 
 
 main()
