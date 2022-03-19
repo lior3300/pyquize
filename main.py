@@ -1,7 +1,7 @@
 '''
     this is a quiz game
-    started: 19/3/2021 15:36
-    finished: :( TODO
+    started: 19/3/2022 15:36
+    finished: 19/3/2022 17:33
 '''
 
 #question source https://www.mentimeter.com/blog/audience-energizers/55-free-trivia-and-fun-quiz-question-templates
