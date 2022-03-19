@@ -21,7 +21,7 @@ questions = {
 answers = [
 ("A)Russia","B)Hong Kong","C)Australia","D)Taiwan"),
 ("A)Rome","B)Greece","C)Madrid","D)Morocco"),
-("A)Mandarin","B)German","C)Portuguese","D)Spanish"),
+("A)Mandarin","B)English","C)Portuguese","D)Spanish"),
 ("A)White","B)Mcgregor","C)Kohen","D)Smith"),
 ("A)Chickenpox","B)Scurvy","C)Influenza","D)Covid-19"),
 ("A)Zeus","B)Poseidon","C)Apollo","D)Artemis"),
@@ -56,7 +56,8 @@ def check_answer(answer,question):
         return 0
 
 def show_score(score):
-    pass
+    percent=(score/len(questions)*100)
+    print("you answered {:.1f}% of the question correctly!".format(percent))
 
 def main():
     print("in this game you'll be shown {} question and 4 possiable answers A-D for each wuestion.".format(len(questions)))
