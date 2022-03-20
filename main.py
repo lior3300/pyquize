@@ -9,7 +9,7 @@
     started: 19/3/2022 20:03
     finished: 19/3/2022 20:37
 
-    part 3:
+    part 3: random order for answers
     started: 20/3/2022 13:04
     finished: 20/3/2022 14:04
 '''
@@ -21,9 +21,10 @@ from operator import concat
 answers = []
 with open('answers.txt') as answers_file:
     for i in answers_file:
-        ansr = tuple(i.rstrip('\n').split(","))
-        randansr = tuple(random.sample(ansr, len(ansr)))
-        randansr = tuple(map(concat, ("A)","B)","C)","D)"), randansr))
+        ansr = tuple(i.rstrip('\n').split(",")) #get the answers from file
+        randansr = tuple(random.sample(ansr, len(ansr))) #shuffle them
+        randansr = tuple(map(concat, ("A)","B)","C)","D)"), randansr)) #mark their location in the list
+        
         answers.append(randansr)
 
 #question source https://www.mentimeter.com/blog/audience-energizers/55-free-trivia-and-fun-quiz-question-templates
